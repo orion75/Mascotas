@@ -11,19 +11,23 @@ export class RazasService {
 
   constructor(private http:HttpClient) { }
 
-  getrazas():Observable<Raza[]>{
+  getall():Observable<Raza[]>{
     return this.http.get<Raza[]>(environment.api+"razas");
   }
 
-  getrazasid(id: any):Observable<Raza>{
+  getid(id: any):Observable<Raza>{
     return this.http.get<Raza>(environment.api+"razas/"+id);
   }
 
-  postrazas(item: Raza):Observable<Raza> {
+  postadd(item: Raza):Observable<Raza> {
     return this.http.post<Raza>(environment.api+"razas", item);
   }
 
-  putrazas(item: Raza):Observable<Raza> {
+  putedit(item: Raza):Observable<Raza> {
     return this.http.put<Raza>(environment.api+"razas", item);
+  }
+
+  del(id: any){
+    return this.http.delete(environment.api+"razas/"+id);
   }
 }

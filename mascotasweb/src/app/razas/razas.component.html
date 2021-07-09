@@ -1,0 +1,21 @@
+<h3>Listado de razas</h3><br/>
+<button type="button" class="btn btn-primary" (click)="addRaza()">Agregar raza</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="razas && razas.length>0">
+        <tr *ngFor="let raza of razas">
+            <th scope="row">{{raza.id}}
+            <td>{{raza.nombre}}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" (click)="editRaza(raza.id)">Editar</a>
+                <a class="btn btn-primary btn-sm btn-danger" (click)="eliminarRaza(raza)">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -53,7 +53,7 @@ class RazaController extends Controller
     public function update(Request $request)
     {
         $request -> validate([
-            "nombre" => 'required|unique:posts'
+            "nombre" => 'required'
         ]);
         $raza = Raza::find($request->input('id'));
         $raza->update($request->all());
