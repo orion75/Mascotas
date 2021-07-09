@@ -44,7 +44,7 @@ export class EditPersonaComponent implements OnInit {
   
   
   saveForm(item:Persona){
-    this.personaService.putPersona(item).subscribe(
+    this.personaService.putedit(item).subscribe(
       (data)=>{
       alert('Cambio realizado');
       this.router.navigate(['personas']);

@@ -15,7 +15,7 @@ export class PersonasComponent implements OnInit {
   constructor(private personaService:PersonasService, private router:Router) { }
 
   ngOnInit(): void {
-    this.personaService.personas().subscribe(
+    this.personaService.getall().subscribe(
       (data: Persona[])=>{
         this.personas=data;
       },
@@ -35,7 +35,7 @@ export class PersonasComponent implements OnInit {
 
   eliminarPersona(persona: Persona){
     if(confirm('Desea eliminar el registro')){
-      this.personaService.delPersona(persona.id).subscribe(
+      this.personaService.del(persona.id).subscribe(
         (data)=>{
           alert('Eliminado con exit');
           this.ngOnInit();

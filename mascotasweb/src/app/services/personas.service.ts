@@ -11,25 +11,23 @@ export class PersonasService {
 
   constructor(private http:HttpClient) { }
 
-  personas():Observable<Persona[]> {
+  getall():Observable<Persona[]> {
     return this.http.get<Persona[]>(environment.api+"personas")
   }
-
-  save(persona:Persona){}
 
   getid(id: any):Observable<Persona>{
     return this.http.get<Persona>(environment.api+"personas/"+id);
   }
 
-  postPersona(item: Persona):Observable<Persona> {
+  postadd(item: Persona):Observable<Persona> {
     return this.http.post<Persona>(environment.api+"personas", item);
   }
 
-  putPersona(item: Persona):Observable<Persona> {
+  putedit(item: Persona):Observable<Persona> {
     return this.http.put<Persona>(environment.api+"personas", item);
   }
   
-  delPersona(id: any){
+  del(id: any){
     console.log(environment.api+"personas/"+id);
     return this.http.delete(environment.api+"personas/"+id);
   }

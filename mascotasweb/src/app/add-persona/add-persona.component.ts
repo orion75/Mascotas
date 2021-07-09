@@ -27,7 +27,7 @@ export class AddPersonaComponent implements OnInit {
 
 
   createForm(item:Persona){
-    this.personaService.postPersona(item).subscribe(
+    this.personaService.postadd(item).subscribe(
       (data) =>{
       console.log(item);
       this.router.navigate(['personas']);
