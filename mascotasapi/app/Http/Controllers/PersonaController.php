@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use Illuminate\Http\Request;
-use SebastianBergmann\Environment\Console;
-
+use Illuminate\Support\Facades\DB;
 class PersonaController extends Controller
 {
     /**
@@ -16,6 +15,12 @@ class PersonaController extends Controller
     public function index()
     {
         return Persona::all();
+    }
+
+    public function shortlist(){
+        return DB::table('personas')
+        ->select('personas.id', DB::raw('CONCAT (personas.nombre, " ", personas.apellidos) AS nombrecompleto'))
+        ->get();
     }
 
 

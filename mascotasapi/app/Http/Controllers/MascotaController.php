@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mascota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class MascotaController extends Controller
 {
@@ -14,7 +16,11 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        return Mascota::all();
+        return DB::table('mascotas')
+        ->join('personas', 'mascotas.id_persona', 'personas.id')
+        ->join('razas', 'mascotas.id_raza', 'razas.id')
+        ->select('mascotas.*', DB::raw('CONCAT (personas.nombre, " ", personas.apellidos) AS persona'), 'razas.nombre AS raza')
+        ->get();
     }
 
     /**

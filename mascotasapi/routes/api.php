@@ -22,6 +22,7 @@ use function PHPSTORM_META\map;
 
 //Route::resource('personas', PersonaController::class);
 Route::get('personas', [PersonaController::class, 'index'])->name('persona.index');
+Route::get('personas_sl', [PersonaController::class, 'shortlist'])->name('persona.shortlist');
 Route::get('personas/{id}', [PersonaController::class, 'show'])->name('persona.show');
 Route::post('personas', [PersonaController::class, 'store'])->name('persona.store');
 Route::put('personas', [PersonaController::class, 'update'])->name('persona.update');
