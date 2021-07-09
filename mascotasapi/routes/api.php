@@ -20,8 +20,12 @@ use function PHPSTORM_META\map;
 |
 */
 
-Route::resource('personas', PersonaController::class);
-Route::put('personas', [PersonaController::class, 'update']);
+//Route::resource('personas', PersonaController::class);
+Route::get('personas', [PersonaController::class, 'index'])->name('persona.index');
+Route::get('personas/{id}', [PersonaController::class, 'show'])->name('persona.show');
+Route::post('personas', [PersonaController::class, 'store'])->name('persona.store');
+Route::put('personas', [PersonaController::class, 'update'])->name('persona.update');
+Route::delete('personas/{id}', [PersonaController::class, 'destroy'])->name('persona.destroy');
 
 Route::resource('razas', RazaController::class);
 Route::put('razas', [RazaController::class, 'update']);
