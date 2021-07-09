@@ -18,17 +18,19 @@ export class PersonasService {
   save(persona:Persona){}
 
   getid(id: any):Observable<Persona>{
-    console.log(environment.api+"personas/"+id);
     return this.http.get<Persona>(environment.api+"personas/"+id);
   }
 
-  putPersona(item: Persona):Observable<Persona> {
-    console.log(environment.api+"personas");
-    return this.http.put<Persona>(environment.api+"personas", item);
+  postPersona(item: Persona):Observable<Persona> {
+    return this.http.post<Persona>(environment.api+"personas", item);
   }
 
-  postPersona(item: Persona):Observable<Persona> {
-    console.log(environment.api+"personas");
-    return this.http.post<Persona>(environment.api+"personas", item);
+  putPersona(item: Persona):Observable<Persona> {
+    return this.http.put<Persona>(environment.api+"personas", item);
+  }
+  
+  delPersona(id: any){
+    console.log(environment.api+"personas/"+id);
+    return this.http.delete(environment.api+"personas/"+id);
   }
 }

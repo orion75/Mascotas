@@ -33,4 +33,18 @@ export class PersonasComponent implements OnInit {
     this.router.navigate(['add-persona']);
   }
 
+  eliminarPersona(persona: Persona){
+    if(confirm('Desea eliminar el registro')){
+      this.personaService.delPersona(persona.id).subscribe(
+        (data)=>{
+          alert('Eliminado con exit');
+          this.ngOnInit();
+        },
+        (error)=>{
+          console.log(error);
+          alert('Ocurrio un Error');
+        });
+    }
+  }
+
 }

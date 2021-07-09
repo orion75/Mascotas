@@ -9,16 +9,20 @@
             <th scope="col">Apellidos</th>
             <th scope="col">Direccion</th>
             <th scope="col">Telefono</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody *ngIf="personas && personas.length>0">
-        <tr *ngFor="let persona of personas" (click)="editPersona(persona.id)">
+        <tr *ngFor="let persona of personas">
             <th scope="row">{{persona.id}}
             <td>{{persona.nombre}}</td>
             <td>{{persona.apellidos}}</td>
             <td>{{persona.direccion}}</td>
             <td>{{persona.telefono}}</td>
-
+            <td>
+                <a class="btn btn-primary btn-sm" (click)="editPersona(persona.id)">Editar</a>
+                <a class="btn btn-primary btn-sm btn-danger" (click)="eliminarPersona(persona)">Eliminar</a>
+            </td>
         </tr>
     </tbody>
 </table>
