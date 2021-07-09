@@ -21,11 +21,17 @@ use function PHPSTORM_META\map;
 */
 
 Route::resource('personas', PersonaController::class);
+Route::put('personas', [PersonaController::class, 'update']);
+
 Route::resource('razas', RazaController::class);
+Route::put('razas', [RazaController::class, 'update']);
+
 Route::resource('mascotas', MascotaController::class);
+Route::put('mascotas', [MascotaController::class, 'update']);
+
 Route::resource('hospedajes', HospedajeController::class);
-//Route::get('/personas', [PersonaController::class, 'index']);
-//Route::post('/personas', [PersonaController::class, 'store']);
+Route::put('hospedajes', [HospedajeController::class, 'update']);
+
 
 
 

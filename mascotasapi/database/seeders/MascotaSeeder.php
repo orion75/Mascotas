@@ -26,7 +26,7 @@ class MascotaSeeder extends Seeder
         $mascota->nombre = "Laila";
         $mascota->id_persona = 2;
         $mascota->id_raza = 1;
-        $mascota->tamano = "GRQANDE";
+        $mascota->tamano = "GRANDE";
         $mascota->edad = 2;
         $mascota->save();
 

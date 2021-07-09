@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Raza;
+use App\Models\Hospedaje;
 use Illuminate\Http\Request;
 
-class RazaController extends Controller
+class HospedajeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class RazaController extends Controller
      */
     public function index()
     {
-        return Raza::all();
+        return Hospedaje::all();
     }
 
     /**
@@ -25,49 +25,50 @@ class RazaController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
-            "nombre" => 'required'
+        $request->validate([
+            'fecha_ingreso' => 'required',
+            'id_mascota' => 'required'
         ]);
-        return Raza::create($request->all());
+        return Hospedaje::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Raza  $raza
+     * @param  \App\Models\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Raza::find($id);
+        return Hospedaje::find($id);
     }
-
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Raza  $raza
+     * @param  \App\Models\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request -> validate([
-            "nombre" => 'required|unique:posts'
+        $request->validate([
+            'fecha_ingreso' => 'required',
+            'id_mascota' => 'required'
         ]);
-        $raza = Raza::find($id);
-        $raza->update($request->all());
-        return $raza;
+        $hospedaje = Hospedaje::find($request->input('id'));
+        $hospedaje->update($request->all());
+        return $hospedaje;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Raza  $raza
+     * @param  \App\Models\Hospedaje  $hospedaje
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        return Raza::destroy($id);
+        return Hospedaje::destroy($id);
     }
 }

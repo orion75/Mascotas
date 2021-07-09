@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hospedaje;
+use App\Models\Mascota;
 use Illuminate\Http\Request;
 
-class HospedajeController extends Controller
+class MascotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class HospedajeController extends Controller
      */
     public function index()
     {
-       return Hospedaje::all();
+        return Mascota::all();
     }
 
     /**
@@ -26,49 +26,55 @@ class HospedajeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fecha_ingreso' => 'required',
-            'id_mascota' => 'required'
+            'nombre' => 'required',
+            'id_persona' => 'required',
+            'id_raza' => 'required',
+            'tamano' => 'required',
+            'edad' => 'required'
         ]);
-        return Hospedaje::create($request->all());
+        return Mascota::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hospedaje  $hospedaje
+     * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Hospedaje::find($id);
+        return Mascota::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Hospedaje  $hospedaje
+     * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
-            'fecha_ingreso' => 'required',
-            'id_mascota' => 'required'
+            'nombre' => 'required',
+            'id_persona' => 'required',
+            'id_raza' => 'required',
+            'tamano' => 'required',
+            'edad' => 'required'
         ]);
-        $hospedaje = Hospedaje::find($id);
-        $hospedaje->update($request->all());
-        return $hospedaje;
+        $mascota = Mascota::find($request->input('id'));
+        $mascota->update($request->all());
+        return $mascota;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hospedaje  $hospedaje
+     * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        return Hospedaje::destroy($id);
+        return Mascota::destroy($id);
     }
 }

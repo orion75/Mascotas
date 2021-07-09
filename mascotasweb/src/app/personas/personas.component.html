@@ -1,0 +1,24 @@
+
+<h3>Listado de personas</h3><br/>
+<button type="button" class="btn btn-primary" (click)="addPersona()">Agregar persona</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="personas && personas.length>0">
+        <tr *ngFor="let persona of personas" (click)="editPersona(persona.id)">
+            <th scope="row">{{persona.id}}
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellidos}}</td>
+            <td>{{persona.direccion}}</td>
+            <td>{{persona.telefono}}</td>
+
+        </tr>
+    </tbody>
+</table>

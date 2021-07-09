@@ -1,0 +1,23 @@
+<p>add-persona works!</p>
+
+<form [formGroup]="addForm" (ngSubmit)="createForm(addForm.value)">
+    <div class="form-group">
+        <label for="">Nombres:</label>
+        <input type="text" class="form-control" placeholder="Nombre de la persona" formControlName="nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="">Apellidos:</label>
+        <input type="text" class="form-control" placeholder="Apellidos de la persona" formControlName="apellidos"/>
+    </div>
+    <div class="form-group">
+        <label for="">Direccion:</label>
+        <input type="text" class="form-control" placeholder="Direccion" formControlName="direccion"/>
+    </div>
+    <div class="form-group">
+        <label for="">Telefono:</label>
+        <input type="text" class="form-control" placeholder="Telefonos" formControlName="telefono"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>

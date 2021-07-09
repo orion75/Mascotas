@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Persona;
+use App\Models\Raza;
 use Illuminate\Http\Request;
 
-class PersonaController extends Controller
+class RazaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        return Persona::all();
+        return Raza::all();
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -26,56 +25,49 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'apellidos' => 'required',
-            'direccion' => 'required',
-            'telefono' => 'required'
+        $request -> validate([
+            "nombre" => 'required'
         ]);
-        return Persona::create($request->all());
+        return Raza::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Raza  $raza
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Persona::find($id);
+        return Raza::find($id);
     }
 
-    
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Raza  $raza
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'apellidos' => 'required',
-            'direccion' => 'required',
-            'telefono' => 'required'
+        $request -> validate([
+            "nombre" => 'required|unique:posts'
         ]);
-        $persona = Persona::find($id);
-        $persona->update($request->all());
-        return $persona;
+        $raza = Raza::find($request->input('id'));
+        $raza->update($request->all());
+        return $raza;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Persona  $persona
+     * @param  \App\Models\Raza  $raza
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        return Persona::destroy($id);
+        return Raza::destroy($id);
     }
 }
