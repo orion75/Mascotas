@@ -26,9 +26,15 @@ Route::get('personas/{id}', [PersonaController::class, 'show'])->name('persona.s
 Route::post('personas', [PersonaController::class, 'store'])->name('persona.store');
 Route::put('personas', [PersonaController::class, 'update'])->name('persona.update');
 Route::delete('personas/{id}', [PersonaController::class, 'destroy'])->name('persona.destroy');
+//Route::resource('razas', RazaController::class);
+Route::get('razas', [RazaController::class, 'index'])->name('razas.index');
+Route::get('razas/{id}', [RazaController::class, 'show'])->name('razas.show');
+Route::post('razas', [RazaController::class, 'store'])->name('razas.store');
+Route::put('razas', [RazaController::class, 'update'])->name('razas.update');
+Route::delete('razas/{id}', [RazaController::class, 'destroy'])->name('razas.destroy');
 
-Route::resource('razas', RazaController::class);
-Route::put('razas', [RazaController::class, 'update']);
+
+
 
 Route::resource('mascotas', MascotaController::class);
 Route::put('mascotas', [MascotaController::class, 'update']);
