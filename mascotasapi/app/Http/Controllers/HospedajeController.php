@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hospedaje;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HospedajeController extends Controller
 {
@@ -14,7 +15,10 @@ class HospedajeController extends Controller
      */
     public function index()
     {
-        return Hospedaje::all();
+        return DB::table('hospedajes')
+        ->join('mascotas', 'hospedajes.id_mascota', 'mascotas.id')
+        ->select('hospedajes.*', 'mascotas.nombre AS mascota')
+        ->get();
     }
 
     /**
