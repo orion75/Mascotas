@@ -1,0 +1,31 @@
+<form [formGroup]="addForm" (ngSubmit)="saveForm(addForm.value)">
+    <div class="form-group">
+        <label for="">Nombre de la mascota:</label>
+        <input type="text" class="form-control" placeholder="Nombre de la mascota" formControlName="nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="">Raza de la mascota:</label>
+        <select class="form-control" formControlName="id_raza">
+            <option *ngFor="let raza of razas" [value]="raza.id">{{raza.nombre}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">tamaño:</label>
+        <select class="form-control" formControlName="tamano">
+            <option *ngFor="let item of lista" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">Edad:</label>
+        <input type="number" class="form-control"  placeholder="Edad de la mascota" formControlName="edad"/>
+    </div>
+    <div class="form-group">
+        <label for="">Persona:</label>
+        <select class="form-control" formControlName="id_persona">
+            <option *ngFor="let persona of personas" [value]="persona.id">{{persona.nombrecompleto}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>
+

@@ -1,0 +1,29 @@
+<h3>Listado de Mascotas</h3><br/>
+<button type="button" class="btn btn-primary" (click)="add()">Agregar mascota</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Tamaño</th>
+            <th scope="col">Dueño</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="items && items.length>0">
+        <tr *ngFor="let item of items">
+            <th scope="row">{{item.id}}
+            <td>{{item.nombre}}</td>
+            <td>{{item.raza}}</td>
+            <td>{{item.edad}}</td>
+            <td>{{item.tamano}}</td>
+            <td>{{item.persona}}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" (click)="edit(item.id)">Editar</a>
+                <a class="btn btn-primary btn-sm btn-danger" (click)="del(item)">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

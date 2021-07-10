@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RazasComponent } from './razas/razas.component';
 import { AddRazaComponent } from './add-raza/add-raza.component';
 import { EditRazaComponent } from './edit-raza/edit-raza.component';
+import { MascotasComponent } from './mascotas/mascotas.component';
+import { AddMascotaComponent } from './add-mascota/add-mascota.component';
+import { EditMascotaComponent } from './edit-mascota/edit-mascota.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { EditRazaComponent } from './edit-raza/edit-raza.component';
     EditPersonaComponent,
     RazasComponent,
     AddRazaComponent,
-    EditRazaComponent
+    EditRazaComponent,
+    MascotasComponent,
+    AddMascotaComponent,
+    EditMascotaComponent
   ],
   imports: [
     BrowserModule,

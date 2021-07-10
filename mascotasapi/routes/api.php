@@ -33,12 +33,12 @@ Route::get('razas/{id}', [RazaController::class, 'show'])->name('razas.show');
 Route::post('razas', [RazaController::class, 'store'])->name('razas.store');
 Route::put('razas', [RazaController::class, 'update'])->name('razas.update');
 Route::delete('razas/{id}', [RazaController::class, 'destroy'])->name('razas.destroy');
-
-
-
-
-Route::resource('mascotas', MascotaController::class);
-Route::put('mascotas', [MascotaController::class, 'update']);
+//Route::resource('mascotas', MascotaController::class);
+Route::get('mascotas', [MascotaController::class, 'index'])->name('mascotas.index');
+Route::get('mascotas/{id}', [MascotaController::class, 'show'])->name('mascotas.show');
+Route::post('mascotas', [MascotaController::class, 'store'])->name('mascotas.store');
+Route::put('mascotas', [MascotaController::class, 'update'])->name('mascotas.update');
+Route::delete('mascotas/{id}', [MascotaController::class, 'destroy'])->name('mascotas.destroy');
 
 Route::resource('hospedajes', HospedajeController::class);
 Route::put('hospedajes', [HospedajeController::class, 'update']);

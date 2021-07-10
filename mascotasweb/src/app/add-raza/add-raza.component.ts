@@ -11,7 +11,7 @@ import { RazasService } from '../services/razas.service';
 })
 export class AddRazaComponent implements OnInit {
 
-  constructor(private razaService:RazasService, private activerouter:ActivatedRoute, private router:Router) { }
+  constructor(private razaService:RazasService, private router:Router) { }
   addForm = new FormGroup({
     id: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),

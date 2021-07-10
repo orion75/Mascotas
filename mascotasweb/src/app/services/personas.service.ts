@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Persona } from '../interfaces/persona';
+import { Persona, PersonaSL } from '../interfaces/persona';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,10 @@ export class PersonasService {
 
   getall():Observable<Persona[]> {
     return this.http.get<Persona[]>(environment.api+"personas")
+  }
+
+  getallshort():Observable<PersonaSL[]> {
+    return this.http.get<PersonaSL[]>(environment.api+"personas_sl")
   }
 
   getid(id: any):Observable<Persona>{

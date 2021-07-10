@@ -11,7 +11,7 @@ import { PersonasService } from '../services/personas.service';
 })
 export class AddPersonaComponent implements OnInit {
 
-  constructor(private personaService:PersonasService, private activerouter:ActivatedRoute, private router:Router) { }
+  constructor(private personaService: PersonasService, private activerouter: ActivatedRoute, private router: Router) { }
 
   addForm = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -22,20 +22,20 @@ export class AddPersonaComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    
+
   }
 
 
-  createForm(item:Persona){
+  createForm(item: Persona) {
     this.personaService.postadd(item).subscribe(
-      (data) =>{
-      console.log(item);
-      this.router.navigate(['personas']);
-    },
-    (error)=>{
-      console.log(error);
-      alert('Ocurrio un Error');
-    }
+      (data) => {
+        console.log(item);
+        this.router.navigate(['personas']);
+      },
+      (error) => {
+        console.log(error);
+        alert('Ocurrio un Error');
+      }
     );
   }
 
