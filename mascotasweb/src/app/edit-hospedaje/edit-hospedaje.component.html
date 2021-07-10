@@ -1,0 +1,23 @@
+<form [formGroup]="editForm" (ngSubmit)="saveForm(editForm.value)">
+
+    <div class="form-group">
+        <label for="">Mascota:</label>
+        <select class="form-control" formControlName="id_mascota">
+            <option *ngFor="let item of items" [value]="item.id">{{item.nombre}}</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="">Fecha de ingreso:</label>
+        <input type="date" class="form-control" formControlName="fecha_ingreso"/>
+    </div>
+    <div class="form-group">
+        <label for="">Fecha de ingreso:</label>
+        <input type="date" class="form-control" formControlName="fecha_salida"/>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>
+
+

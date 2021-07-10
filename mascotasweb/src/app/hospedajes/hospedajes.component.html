@@ -1,0 +1,25 @@
+<h3>Listado de Hospedaje de Mascotas</h3><br/>
+<button type="button" class="btn btn-primary" (click)="add()">Agregar hospedaje</button>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Mascota</th>
+            <th scope="col">Fecha de ingreso</th>
+            <th scope="col">Fecha de salida</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="items && items.length>0">
+        <tr *ngFor="let item of items">
+            <th scope="row">{{item.id}}
+            <td>{{item.mascota}}</td>
+            <td>{{item.fecha_ingreso}}</td>
+            <td>{{item.fecha_salida}}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" (click)="edit(item.id)">Editar</a>
+                <a class="btn btn-primary btn-sm btn-danger" (click)="del(item)">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

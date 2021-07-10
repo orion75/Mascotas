@@ -15,6 +15,9 @@ import { EditRazaComponent } from './edit-raza/edit-raza.component';
 import { MascotasComponent } from './mascotas/mascotas.component';
 import { AddMascotaComponent } from './add-mascota/add-mascota.component';
 import { EditMascotaComponent } from './edit-mascota/edit-mascota.component';
+import { HospedajesComponent } from './hospedajes/hospedajes.component';
+import { AddHospedajeComponent } from './add-hospedaje/add-hospedaje.component';
+import { EditHospedajeComponent } from './edit-hospedaje/edit-hospedaje.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { EditMascotaComponent } from './edit-mascota/edit-mascota.component';
     EditRazaComponent,
     MascotasComponent,
     AddMascotaComponent,
-    EditMascotaComponent
+    EditMascotaComponent,
+    HospedajesComponent,
+    AddHospedajeComponent,
+    EditHospedajeComponent
   ],
   imports: [
     BrowserModule,
